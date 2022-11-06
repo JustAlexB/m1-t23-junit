@@ -71,8 +71,12 @@ public class ReversePolishNotationCalculatorTest {
 
     @Test
     public void CheckAnyNumberOfSpaces() {
-        int result = calculator.calculatePolishNotation(" 3     2   +");
-        Assertions.assertEquals(5, result);
+        int resultAdd = calculator.calculatePolishNotation("   3     2    + ");
+        int resultMult = calculator.calculatePolishNotation("   3   2   *");
+        int resultSub = calculator.calculatePolishNotation(" 3 2     -");
+        Assertions.assertEquals(5, resultAdd);
+        Assertions.assertEquals(6, resultMult);
+        Assertions.assertEquals(1, resultSub);
     }
 
     private Executable generateExecutable() {
